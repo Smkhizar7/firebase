@@ -15,9 +15,17 @@ var getData = () => {
         var td3 = document.createElement('td');
         var td3_text = document.createTextNode(Age);
         td3.appendChild(td3_text);
+        var td4 = document.createElement('td');
+        var btn = document.createElement('button');
+        var btn_text = document.createTextNode('Delete');
+        btn.appendChild(btn_text);
+        btn.setAttribute('id',Name);
+        btn.setAttribute('onclick','del(this)');
+        td4.appendChild(btn);
         tr.appendChild(td1);
         tr.appendChild(td2);
         tr.appendChild(td3);
+        tr.appendChild(td4);
         table.appendChild(tr);
         i++;
     })
@@ -32,6 +40,10 @@ var sendData = () => {
     firebase.database().ref('users').child(uName.value).set(obj);
     uName.value = "";
     nAge.value = "";
+    getData();
+}
+var del = (a) => {
+    firebase.database().ref('users').child(a.id).remove();
     getData();
 }
 getData();
