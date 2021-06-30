@@ -1,0 +1,18 @@
+.col-8 {
+    margin: 10px auto;
+    /* border: 3px solid black; */
+}
+body{
+    display: flex;
+    flex-direction: column;
+    /* border: 3px solid black; */
+}
+div#outerDiv {
+    border: 3px solid black;
+    margin: 10px auto;
+    padding: 10px;
+}
+
+#outerDiv div {
+    margin: 10px;
+}
